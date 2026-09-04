@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,14 +10,14 @@
     
     <style>
         :root {
-            --primary: #ff2a85;         
-            --primary-dark: #d40062;    
-            --accent: #ffd166;          
-            --bg-body: #0d0d0d;         
-            --bg-card: #181818;         
-            --text-light: #ffffff;      
-            --text-muted: #b0b0b0;      
-            --whatsapp: #25d366;        
+            --primary: #ff2a85;         /* Rosa vibrante y atrevido */
+            --primary-dark: #d40062;    /* Fucsia oscuro */
+            --accent: #ffd166;          /* Dorado/amarillo brillante para contraste */
+            --bg-body: #0d0d0d;         /* Fondo negro moderno */
+            --bg-card: #181818;         /* Tarjetas gris oscuro carbón */
+            --text-light: #ffffff;      /* Texto blanco puro */
+            --text-muted: #b0b0b0;      /* Gris suave */
+            --whatsapp: #25d366;        /* Verde WhatsApp */
             --border-glow: rgba(255, 42, 133, 0.3);
             --transition: all 0.3s ease;
         }
@@ -175,7 +176,8 @@
 
         /* --- 1. VISTA INICIO --- */
         .hero-banner {
-            background: linear-gradient(135deg, rgba(255, 42, 133, 0.3), rgba(0,0,0,0.85)), url('file:///C:/briana/clasica%201.jpeg') no-repeat center center/cover;
+            /* Cambia 'images/hero-bg.jpg' por la ruta de tu imagen local en la carpeta images */
+            background: linear-gradient(135deg, rgba(255, 42, 133, 0.25), rgba(0,0,0,0.85)), url('images/hero-bg.jpg') no-repeat center center/cover;
             border-radius: 20px;
             padding: 100px 40px;
             text-align: center;
@@ -261,7 +263,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- 2. VISTA SERVICIOS CON TUS IMÁGENES REALES --- */
+        /* --- 2. VISTA SERVICIOS --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -285,37 +287,32 @@
             box-shadow: 0 15px 35px rgba(255, 42, 133, 0.2);
         }
 
-        .service-img-container {
-            height: 200px;
+        .service-visual {
+            height: 180px;
             width: 100%;
-            overflow: hidden;
+            background: linear-gradient(135deg, #222, #111);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
             position: relative;
+            border-bottom: 2px solid var(--primary);
         }
 
-        .service-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+        .service-visual i {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+            filter: drop-shadow(0 0 10px rgba(255, 42, 133, 0.5));
         }
 
-        .service-card:hover .service-img-container img {
-            transform: scale(1.08);
-        }
-
-        .service-badge {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.75);
-            padding: 5px 12px;
-            border-radius: 20px;
+        .service-visual span {
             font-family: 'Syne', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--accent);
-            border: 1px solid rgba(255, 209, 102, 0.3);
-            backdrop-filter: blur(5px);
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
         }
 
         .service-body {
@@ -531,11 +528,10 @@
         </div>
         <div class="services-grid">
             
-            <!-- Servicio 1: Clásico -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="file:///C:/briana/clasica.jpeg" alt="Efecto Clásico Pelo a Pelo">
-                    <span class="service-badge">Clásico</span>
+                <div class="service-visual">
+                    <i class="fa-solid fa-eye"></i>
+                    <span>Clásico</span>
                 </div>
                 <div class="service-body">
                     <h3>Efecto Clásico Pelo a Pelo</h3>
@@ -547,15 +543,14 @@
                 </div>
             </div>
 
-            <!-- Servicio 2: Volumen Ruso -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="file:///C:/briana/ruso.jpeg" alt="Volumen Ruso Master">
-                    <span class="service-badge">Volumen Ruso</span>
+                <div class="service-visual">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Volumen Ruso</span>
                 </div>
                 <div class="service-body">
                     <h3>Volumen Ruso Master</h3>
-                    <p>Abanicos densos creados a mano para una cobertura total y mirada impactante.</p>
+                    <p>Abanicos densos de 3D a 6D creados a mano para una cobertura total y mirada impactante.</p>
                 </div>
                 <div class="service-footer">
                     <span class="service-price">L. 1,250.00</span>
@@ -563,11 +558,10 @@
                 </div>
             </div>
 
-            <!-- Servicio 3: Híbrido -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="file:///C:/briana/hibrida.jpeg" alt="Efecto Híbrido Texturizado">
-                    <span class="service-badge">Híbrido</span>
+                <div class="service-visual">
+                    <i class="fa-solid fa-feather"></i>
+                    <span>Híbrido</span>
                 </div>
                 <div class="service-body">
                     <h3>Efecto Híbrido Texturizado</h3>
@@ -579,11 +573,10 @@
                 </div>
             </div>
 
-            <!-- Servicio 4: Wispy / Class -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="file:///C:/briana/class.jpeg" alt="Wispy / Kim K Style">
-                    <span class="service-badge">Wispy</span>
+                <div class="service-visual">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Wispy</span>
                 </div>
                 <div class="service-body">
                     <h3>Wispy / Kim K Style</h3>
@@ -591,15 +584,14 @@
                 </div>
                 <div class="service-footer">
                     <span class="service-price">L. 1,300.00</span>
-                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20servicio%20Wispy%20(L.1,300.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20servicio%20Wispy%20/%20Kim%20K%20Style%20(L.1,300.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
                 </div>
             </div>
 
-            <!-- Servicio 5: Hibi -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="file:///C:/briana/hibi.jpeg" alt="Lifting de Pestañas + Tinte">
-                    <span class="service-badge">Lifting</span>
+                <div class="service-visual">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    <span>Lifting</span>
                 </div>
                 <div class="service-body">
                     <h3>Lifting de Pestañas + Tinte</h3>
@@ -607,15 +599,14 @@
                 </div>
                 <div class="service-footer">
                     <span class="service-price">L. 750.00</span>
-                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Lifting%20de%20Pestañas%20(L.750.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Lifting%20de%20Pestañas%20+%20Tinte%20(L.750.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
                 </div>
             </div>
 
-            <!-- Servicio 6: Volumen -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="file:///C:/briana/volumen.jpeg" alt="Brow Lamination Profesional">
-                    <span class="service-badge">Laminado</span>
+                <div class="service-visual">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <span>Laminado</span>
                 </div>
                 <div class="service-body">
                     <h3>Brow Lamination Profesional</h3>
@@ -623,7 +614,7 @@
                 </div>
                 <div class="service-footer">
                     <span class="service-price">L. 650.00</span>
-                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Brow%20Lamination%20(L.650.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Brow%20Lamination%20Profesional%20(L.650.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
                 </div>
             </div>
 
@@ -632,7 +623,8 @@
 
     <div id="nosotros" class="page-section">
         <div class="about-container">
-            <img src="file:///C:/briana/rusico.jpeg" alt="Estudio Marcela Lashes" class="about-img">
+            <!-- Cambia 'images/about-img.jpg' por la ruta de tu imagen local -->
+            <img src="images/about-img.jpg" alt="Estudio Marcela Lashes" class="about-img">
             <div>
                 <h2 style="font-size: 2.8rem; margin-bottom: 20px; font-weight: 800;">Pasión sin <span>Límites</span></h2>
                 <p style="color: var(--text-muted); margin-bottom: 20px;">En <strong>Marcela Lashes</strong> no seguimos moldes aburridos; creamos estilos únicos adaptados a la personalidad de cada clienta. Nos encanta la tendencia, el buen gusto y sobre todo que salgas amando el resultado en el espejo.</p>
