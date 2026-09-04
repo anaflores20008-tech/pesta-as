@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcela Lashes | Estudio de Pestañas y Cejas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #ff2a85;         
+            --primary-dark: #d40062;    
+            --accent: #ffd166;          
+            --bg-body: #0d0d0d;         
+            --bg-card: #181818;         
+            --text-light: #ffffff;      
+            --text-muted: #b0b0b0;      
+            --whatsapp: #25d366;        
+            --border-glow: rgba(255, 42, 133, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-light);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 13, 13, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(255, 42, 133, 0.5);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--whatsapp), #1ebe57) !important;
+            color: #ffffff !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn-nav:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1001;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #1ebe57;
+        }
+
+        /* --- CONTROL DE VISTAS --- */
+        .page-section {
+            display: none;
+            padding: 150px 6% 100px 6%;
+            max-width: 1280px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        .page-section.active-section {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-title h2 span {
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* --- 1. VISTA INICIO --- */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(255, 42, 133, 0.3), rgba(0,0,0,0.85)), url('file:///C:/briana/clasica%201.jpeg') no-repeat center center/cover;
+            border-radius: 20px;
+            padding: 100px 40px;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 42, 133, 0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-banner h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(255, 42, 133, 0.6);
+        }
+
+        .hero-banner p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #ffffff;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 42, 133, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 42, 133, 0.7);
+        }
+
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .home-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .home-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 42, 133, 0.15);
+        }
+
+        .home-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .home-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .home-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- 2. VISTA SERVICIOS CON TUS IMÁGENES REALES --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(255, 42, 133, 0.2);
+        }
+
+        .service-img-container {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img-container img {
+            transform: scale(1.08);
+        }
+
+        .service-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--accent);
+            border: 1px solid rgba(255, 209, 102, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .service-body {
+            padding: 25px;
+        }
+
+        .service-body h3 {
+            font-size: 1.35rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .service-body p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px 25px 25px;
+        }
+
+        .service-price {
+            font-weight: 800;
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .btn-service {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid var(--whatsapp);
+            color: var(--whatsapp);
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-service:hover {
+            background: var(--whatsapp);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* --- 3. VISTA NOSOTROS --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 42, 133, 0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            object-fit: cover;
+            height: 400px;
+        }
+
+        /* --- 4. VISTA TESTIMONIOS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card h4 {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- 5. VISTA CONTACTO --- */
+        .contact-box {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid rgba(255, 42, 133, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 42, 133, 0.1);
+        }
+
+        .contact-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .contact-box i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .btn-whatsapp-large {
+            display: inline-block;
+            background: var(--whatsapp);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp-large:hover {
+            transform: translateY(-3px);
+            background: #1ebe57;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 35px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .about-container { grid-template-columns: 1fr; }
+            .hero-banner h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/50495283721?text=Hola,%20deseo%20más%20información%20sobre%20sus%20servicios%20de%20pestañas%20y%20cejas." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="nav-container">
+            <a onclick="showSection('inicio')" class="logo">Marcela<span>Lashes</span></a>
+            <ul class="nav-menu">
+                <li><a onclick="showSection('inicio')" id="menu-inicio" class="active">Inicio</a></li>
+                <li><a onclick="showSection('servicios')" id="menu-servicios">Servicios</a></li>
+                <li><a onclick="showSection('nosotros')" id="menu-nosotros">Nosotros</a></li>
+                <li><a onclick="showSection('testimonios')" id="menu-testimonios">Testimonios</a></li>
+                <li><a href="https://wa.me/50495283721?text=Hola,%20quiero%20agendar%20una%20cita." target="_blank" class="btn-nav"><i class="fa-brands fa-whatsapp"></i> Agendar Cita</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="inicio" class="page-section active-section">
+        <div class="hero-banner">
+            <h1>Eleva Tu Mirada al <span>Siguiente Nivel</span></h1>
+            <p>Diseños de pestañas y cejas con actitud, volumen extremo y un estilo totalmente inconfundible.</p>
+            <a onclick="showSection('servicios')" class="btn-primary" style="cursor: pointer;">Ver Catálogo Pro</a>
+        </div>
+        <div class="home-grid">
+            <div class="home-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Técnica Pro</h3>
+                <p>Aplicaciones ultra precisas que cuidan al 100% tu pestaña natural sin perder impacto.</p>
+            </div>
+            <div class="home-card">
+                <i class="fa-solid fa-fire"></i>
+                <h3>Volumen Extremo</h3>
+                <p>Abanicos perfectamente armados para una mirada profunda, densa y magnética.</p>
+            </div>
+            <div class="home-card">
+                <i class="fa-solid fa-gem"></i>
+                <h3>Estudio Exclusivo</h3>
+                <p>El spot perfecto para relajarte mientras transformamos completamente tu mirada.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="servicios" class="page-section">
+        <div class="section-title">
+            <h2>Nuestros <span>Servicios</span></h2>
+            <p>Escoge el estilo que vaya con tu personalidad y rómpele a donde vayas</p>
+        </div>
+        <div class="services-grid">
+            
+            <!-- Servicio 1: Clásico -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <img src="file:///C:/briana/clasica.jpeg" alt="Efecto Clásico Pelo a Pelo">
+                    <span class="service-badge">Clásico</span>
+                </div>
+                <div class="service-body">
+                    <h3>Efecto Clásico Pelo a Pelo</h3>
+                    <p>Ideal para un look limpio, fresco y con el toque perfecto de rímel diario sin esfuerzo.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">L. 850.00</span>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Efecto%20Clásico%20Pelo%20a%20Pelo%20(L.850.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 2: Volumen Ruso -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <img src="file:///C:/briana/ruso.jpeg" alt="Volumen Ruso Master">
+                    <span class="service-badge">Volumen Ruso</span>
+                </div>
+                <div class="service-body">
+                    <h3>Volumen Ruso Master</h3>
+                    <p>Abanicos densos creados a mano para una cobertura total y mirada impactante.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">L. 1,250.00</span>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Volumen%20Ruso%20Master%20(L.1,250.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 3: Híbrido -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <img src="file:///C:/briana/hibrida.jpeg" alt="Efecto Híbrido Texturizado">
+                    <span class="service-badge">Híbrido</span>
+                </div>
+                <div class="service-body">
+                    <h3>Efecto Híbrido Texturizado</h3>
+                    <p>La combinación ganadora entre clásico y volumen para un look moderno y con textura única.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">L. 1,050.00</span>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Efecto%20Híbrido%20Texturizado%20(L.1,050.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 4: Wispy / Class -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <img src="file:///C:/briana/class.jpeg" alt="Wispy / Kim K Style">
+                    <span class="service-badge">Wispy</span>
+                </div>
+                <div class="service-body">
+                    <h3>Wispy / Kim K Style</h3>
+                    <p>Efecto espiga con picos largos estratégicos. Diseñado para chicas que aman destacar.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">L. 1,300.00</span>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20servicio%20Wispy%20(L.1,300.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 5: Hibi -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <img src="file:///C:/briana/hibi.jpeg" alt="Lifting de Pestañas + Tinte">
+                    <span class="service-badge">Lifting</span>
+                </div>
+                <div class="service-body">
+                    <h3>Lifting de Pestañas + Tinte</h3>
+                    <p>Eleva tu propia pestaña desde la raíz con queratina y nutrición profunda por semanas.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">L. 750.00</span>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Lifting%20de%20Pestañas%20(L.750.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 6: Volumen -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <img src="file:///C:/briana/volumen.jpeg" alt="Brow Lamination Profesional">
+                    <span class="service-badge">Laminado</span>
+                </div>
+                <div class="service-body">
+                    <h3>Brow Lamination Profesional</h3>
+                    <p>Direcciona y fija tus cejas para un aspecto perfectamente poblado, ordenado y en tendencia.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-price">L. 650.00</span>
+                    <a href="https://wa.me/50495283721?text=Hola,%20quiero%20reservar%20el%20Brow%20Lamination%20(L.650.00)" target="_blank" class="btn-service"><i class="fa-brands fa-whatsapp"></i> Reservar</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="nosotros" class="page-section">
+        <div class="about-container">
+            <img src="file:///C:/briana/rusico.jpeg" alt="Estudio Marcela Lashes" class="about-img">
+            <div>
+                <h2 style="font-size: 2.8rem; margin-bottom: 20px; font-weight: 800;">Pasión sin <span>Límites</span></h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">En <strong>Marcela Lashes</strong> no seguimos moldes aburridos; creamos estilos únicos adaptados a la personalidad de cada clienta. Nos encanta la tendencia, el buen gusto y sobre todo que salgas amando el resultado en el espejo.</p>
+                <p style="color: var(--text-muted);">Trabajamos con los mejores insumos del mercado para asegurarte retención brutal y cero daños a tu pelo natural.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="testimonios" class="page-section">
+        <div class="section-title">
+            <h2>Lo Que <span>Dicen</span></h2>
+            <p>Clientas felices que ya comprobaron la calidad de nuestro estudio</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"¡Amo mis pestañas! La retención es increíble y el estudio tiene una vibra buenísima. 10 de 10."</p>
+                <h4>Valeria Castellanos</h4>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"El volumen ruso quedó perfecto, súper ligero y nada pesado. ¡Me hace sentir arreglada todo el día!"</p>
+                <h4>Daniela Mendoza</h4>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"La atención es súper profesional y te explican perfecto los cuidados. Súper recomendado."</p>
+                <h4>Lucía Ramírez</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="contacto" class="page-section">
+        <div class="contact-box">
+            <h3>Agenda Tu <span>Espacio</span></h3>
+            <p><i class="fa-solid fa-location-dot"></i> Plaza Comercial, Local 12, Tegucigalpa</p>
+            <p><i class="fa-solid fa-phone"></i> +504 9528-3721</p>
+            <p><i class="fa-solid fa-envelope"></i> citas@marcelalashes.hn</p>
+            <p style="margin-top: 25px; color: var(--text-light);"><strong>Horario:</strong> Lunes a Sábado de 9:00 AM a 6:00 PM</p>
+            
+            <a href="https://wa.me/50495283721?text=Hola,%20deseo%20agendar%20una%20cita%20en%20el%20estudio." target="_blank" class="btn-whatsapp-large">
+                <i class="fa-brands fa-whatsapp"></i> Escríbenos al WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Marcela Lashes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active-section'));
+
+            document.getElementById(sectionId).classList.add('active-section');
+
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.getElementById('menu-' + sectionId);
+            if (activeLink && !activeLink.classList.contains('btn-nav')) {
+                activeLink.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
